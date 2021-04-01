@@ -10,6 +10,8 @@ import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import AssetsPage from './pages/assets/assets.component';
+import AssetPage from './pages/asset/asset.component';
+
 
 import Header from './components/header/header.component';
 
@@ -51,8 +53,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/assets' component={AssetsPage} />
-          <Route path='/assets/:symbol' component={AssetsPage} />
+          <Route  exact path='/assets' component={AssetsPage} />
+          <Route path='/:id' component={AssetPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
           <Route
             exact

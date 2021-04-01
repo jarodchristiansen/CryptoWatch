@@ -1,5 +1,5 @@
 import React from 'react';
-import Directory from '../../components/directory/directory.component';
+
 
 class AssetPage extends React.Component {
   constructor(props) {
@@ -14,7 +14,8 @@ class AssetPage extends React.Component {
     const { symbol } = this.state;
     return (
       <div className='shop-page'>
-      {symbol}
+      <h1>Hello</h1>
+      <h2>{symbol}</h2>
       </div>
     );
   }
