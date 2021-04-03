@@ -3,14 +3,21 @@ import { withRouter } from 'react-router-dom';
 
 import './menu-item.styles.scss';
 
-const MenuItem = ({ title, imageUrl, size, history, linkUrl, match, symbol }) => (
+const MenuItem = ({ title, imageUrl, size, history, linkUrl, match, symbol, categories }) => (
   <div
     // className={`${size} menu-item`}
     // onClick={() => history.push(`${match.url}-${linkUrl}`, [{symbol}])}
  className={`${size} menu-item`}
-    onClick={() => history.push({
+    onClick={() => 
+     history.push({
       'pathname': '/' + symbol,
+      'title': localStorage.setItem('tokenTitle', JSON.stringify(title)),
+      'imageUrl': imageUrl,
+      'match': match.url,
       'symbol': symbol,
+       match,
+      'ImageStorage': localStorage.setItem('image', JSON.stringify(imageUrl)),
+      'storage' : localStorage.setItem('token', JSON.stringify(symbol)) 
     })}
 
   >

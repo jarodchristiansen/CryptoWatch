@@ -22,10 +22,19 @@ class Directory extends React.Component {
   };
 
 
+  handleSearchData = (newSections, sections, res, query) => {
+    // {query.length >= 3 ? newSections.push(sections.find(res => res.symbol.includes(query.toUpperCase())))
+    if(sections.filter(res => this.state.query.toUpperCase === res.symbol || res.title)) {
+      newSections.push(sections.find(res => this.state.query === res.symbol || res.title))
+      console.log(res)
+    }
+  }
+
   render() {
     const {query} = this.state;
     const {sections} = this.state;
     const newSections = [];
+    const noValues = [];
     return (
     <div>
     <div>
@@ -44,16 +53,26 @@ class Directory extends React.Component {
       </div> */}
 
       <div className='directory-menu'>
-        {query.length >= 2 ? newSections.push(sections.find(res => res.symbol.includes(query.toUpperCase()))) :
-       sections.slice(0,80).map(({ id, ...otherSectionProps }) => (
+
+        {sections.find(res => res.symbol == query.toUpperCase()) ? newSections.push(sections.find(res => res.symbol == query.toUpperCase())) :       
+        sections.find(res => res.symbol == query.toUpperCase()) == -1 ?
+        noValues.push(<h1>'No matching Values'</h1>) :
+        sections.slice(0,80).map(({ id, ...otherSectionProps }) => (
           <MenuItem key={id} {...otherSectionProps} />
-        ))}
+        ))
+        }
         
-        {newSections.slice(0,80).map(({ id, ...otherSectionProps }) => (
-          <MenuItem key={id} {...otherSectionProps} />
-        ))}
 
       </div>
+      <div className="searchResult">
+        {noValues.length >= 0 ? newSections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} categories={id.categories} {...otherSectionProps} />
+        )) : noValues.map(({y}) => (
+          <h1 key={y}>{y}</h1>
+        ))
+        }
+
+        </div>
       </div>
     );
   }

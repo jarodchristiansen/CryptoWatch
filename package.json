@@ -10,12 +10,15 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "5.0.0",
     "react-tradingview-embed": "^1.0.2",
+    "react-vis": "^1.11.7",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "reselect": "^4.0.0"
   },
   "devDependencies": {
+    "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-regex": "^7.10.5",
     "react-scripts": "3.0.0"
   },
   "resolutions": {

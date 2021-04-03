@@ -3,4 +3,13 @@
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-between;
+
+
+ 
+}
+
+.searchResult {
+  max-width: 25vw;
+  display: flex;
+  flex-direction: row;
 }
